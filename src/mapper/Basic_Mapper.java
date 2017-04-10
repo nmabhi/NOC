@@ -1,11 +1,10 @@
 package mapper;
 
 import java.util.*;
-
 import mapper.Edge;
 
 /**
- * Created by Abhishek on 2/28/2017.
+ * Created by Parth on 2/28/2017.
  */
 public class Basic_Mapper {
     private static List<Edge> edges = new ArrayList<>();
