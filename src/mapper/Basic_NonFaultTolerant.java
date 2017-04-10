@@ -16,7 +16,7 @@ public class Basic_NonFaultTolerant {
             Edge edge = itr.next();
             int hops = outputTopology.checkConnection(edge);
             if (hops == 0) {
-                addConnection(edge);
+                outputTopology.addConnection(edge);
             }
         }
         return outputTopology;

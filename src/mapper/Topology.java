@@ -9,15 +9,16 @@ import java.util.List;
  * Created by Xorcist on 10-04-2017.
  */
 public class Topology {
-    private static HashMap<Integer, List<Integer>> connections = new HashMap<>();
-    private static List<Integer> visitedNodes = new ArrayList<>();
-    private static List<Integer> costList = new ArrayList<>();
+    public int numberOfLinks = 0;
+    private HashMap<Integer, List<Integer>> connections = new HashMap<>();
+    private List<Integer> visitedNodes = new ArrayList<>();
+    private List<Integer> costList = new ArrayList<>();
 
     public void printTopology() {
         System.out.println(connections.entrySet().toString());
     }
 
-    public static int checkConnection(Edge edge) {
+    public int checkConnection(Edge edge) {
         Integer node1 = edge.node1;
         Integer node2 = edge.node2;
         if (!connections.containsKey(node1) || !connections.containsKey(node1)) {
@@ -28,7 +29,7 @@ public class Topology {
         }
     }
 
-    private static int checkConnectionIterator(Integer node1, Integer node2, int hops) {
+    private int checkConnectionIterator(Integer node1, Integer node2, int hops) {
         hops++;
         int ret = 0;
         visitedNodes.add(node1);
@@ -47,7 +48,7 @@ public class Topology {
         return ret;
     }
 
-    public static void addConnection(Edge edge) {
+    public void addConnection(Edge edge) {
         if (connections.containsKey(edge.node1)) {
             connections.get(edge.node1).add(edge.node2);
         } else {
@@ -63,5 +64,9 @@ public class Topology {
             list.add(edge.node1);
             connections.put(edge.node2, list);
         }
+
+        numberOfLinks++;
     }
+
+
 }
