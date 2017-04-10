@@ -27,7 +27,7 @@ public class TopologyEvaluator {
 
     public static float linkUtilization(Graph graph, Topology topology) {
         float commCost = commCost(graph, topology);
-        float lu = topology.numberOfLinks / commCost;
+        float lu = commCost / topology.numberOfLinks;
         return lu;
     }
 }
