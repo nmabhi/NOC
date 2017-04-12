@@ -1,7 +1,7 @@
 package mapper;
 
 
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * Created by Xorcist on 10-04-2017.
@@ -25,9 +25,128 @@ public class TopologyEvaluator {
         return sum;
     }
 
-    public static float linkUtilization(Graph graph, Topology topology) {
-        float commCost = commCost(graph, topology);
-        float lu = commCost / topology.numberOfLinks;
-        return lu;
+    public static float avgLinkUtilization(Graph graph, Topology topology) {
+        HashMap<Integer, HashMap<Integer, Integer>> linkUtilMap = linkUtilizationGraph(graph, topology);
+        float sum = 0;
+        float denom = 0;
+        Iterator itr1 = linkUtilMap.entrySet().iterator();
+        while (itr1.hasNext()) {
+            Iterator itr2 = ((HashMap<Integer, Integer>) ((Map.Entry) itr1.next()).getValue()).entrySet().iterator();
+            while (itr2.hasNext()) {
+                sum += (int) ((Map.Entry) itr2.next()).getValue();
+                denom++;
+            }
+        }
+        return sum / denom;
     }
+
+    public static HashMap<Integer, HashMap<Integer, Integer>> linkUtilizationGraph(Graph graph, Topology topology) {
+        HashMap<Integer, HashMap<Integer, Integer>> linkUtilMap = new HashMap<Integer, HashMap<Integer, Integer>>();
+        //populate the LUM with zeros.
+        Iterator itr = topology.connections.entrySet().iterator();
+        while (itr.hasNext()) {
+            Map.Entry entry = (Map.Entry) itr.next();
+            ArrayList<Integer> nList = (ArrayList<Integer>) entry.getValue();
+            Iterator smlItr = nList.iterator();
+            HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+            while (smlItr.hasNext()) {
+                map.put((Integer) smlItr.next(), 0);
+                linkUtilMap.put((Integer) entry.getKey(), map);
+            }
+        }
+        //System.out.println(linkUtilMap);
+        //Done
+        //Now take each edge and mark the links in the shortest path
+        Iterator edgeItr = graph.edges.iterator();
+        while (edgeItr.hasNext()) {
+            Edge edge = (Edge) edgeItr.next();
+            HashMap<Integer, HashMap<Integer, HashMap<Integer, Integer>>> results = LUM_Iterator(edge.node1, edge.node2, new ArrayList<Integer>(), 0, linkUtilMap);
+            Integer shortestPath = new TreeSet<Integer>(results.keySet()).first();
+            linkUtilMap = results.get(shortestPath);
+        }
+        //This gives faulty result because it assumes link(a,b) !== link(b,a)
+        //We need to now rectify this.
+        Iterator itr2 = linkUtilMap.entrySet().iterator();
+        while (itr2.hasNext()) {
+            Map.Entry entry = (Map.Entry) itr2.next();
+            Integer a = (Integer) entry.getKey();
+            HashMap<Integer, Integer> map = (HashMap) entry.getValue();
+            Iterator itr3 = map.entrySet().iterator();
+            while (itr3.hasNext()) {
+                Integer b = (Integer) ((Map.Entry) itr3.next()).getKey();
+                if (a < b) {
+                    Integer util = linkUtilMap.get(a).get(b) + linkUtilMap.get(b).get(a);
+                    linkUtilMap.get(a).put(b, util);
+                    linkUtilMap.get(b).put(a, util);
+                }
+            }
+        }
+        return linkUtilMap;
+    }
+
+    private static HashMap<Integer, HashMap<Integer, HashMap<Integer, Integer>>> LUM_Iterator(Integer node1, Integer node2, List<Integer> visitedNodes, int hops, HashMap<Integer, HashMap<Integer, Integer>> LUM) {
+        hops++;
+        visitedNodes.add(node1);
+        HashMap<Integer, HashMap<Integer, HashMap<Integer, Integer>>> ret = new HashMap<Integer, HashMap<Integer, HashMap<Integer, Integer>>>();
+        HashMap<Integer, Integer> nodesList = LUM.get(node1);
+        if (nodesList.containsKey(node2)) {
+            Integer util = nodesList.get(node2);
+            nodesList.put(node2, ++util);
+            LUM.put(node1, nodesList);
+            ret.put(hops, LUM);
+            return ret;
+        }
+        Iterator itr = nodesList.keySet().iterator();
+        ret = null;
+        while (itr.hasNext()) {
+            Integer nextNode = (Integer) itr.next();
+            if (!visitedNodes.contains(nextNode)) {
+                HashMap<Integer, HashMap<Integer, HashMap<Integer, Integer>>> temp = LUM_Iterator(nextNode, node2, visitedNodes, hops, LUM);
+                if (temp != null) {
+                    if (ret == null) {
+                        ret = temp;
+
+                    } else {
+                        ret.putAll(temp);
+                    }
+                    Integer util = nodesList.get(nextNode);
+                    nodesList.put(nextNode, ++util);
+                    LUM.put(node1, nodesList);
+                }
+            }
+        }
+        return ret;
+    }
+
+    public static float linkFaultTolerance(Graph graph, Topology topology) {
+        float faultTolerantLinks = 0;
+        List<Edge> edges = new ArrayList<Edge>();
+        for (Map.Entry entry : topology.connections.entrySet()) {
+            Integer node1 = (Integer) entry.getKey();
+            for (Integer node2 : (List<Integer>) entry.getValue()) {
+                if (node1 < node2) {
+                    edges.add(new Edge(node1, node2));
+                }
+            }
+        }
+        for (Edge edge : edges) {
+            try {
+                if (checkLinkFaultTolerance(edge, topology)) faultTolerantLinks++;
+            } catch (Exception e) {
+            }
+        }
+        return faultTolerantLinks * 100.0f / topology.numberOfLinks;
+    }
+
+    public static boolean checkLinkFaultTolerance(Edge edge, Topology topology) throws Exception {
+        int hops = topology.checkConnection(edge);
+        if (hops == 0) return false;
+        else if (hops == 1) {
+            topology.removeConnection(edge);
+            boolean ret = (topology.checkConnection(edge) > 0);
+            topology.addConnection(edge);
+            return ret;
+        } else throw new Exception("not a link");
+    }
+
 }

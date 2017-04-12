@@ -1,6 +1,8 @@
 package mapper;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -63,54 +65,54 @@ public class Main {
 
         // Now applying any of the algorithm classes to generate topology.*/
 
+        int g = 0;
         for (Graph graph : graphList) {
+            System.out.println("For graph " + ++g);
+            graph.printInputGraph();
+            System.out.println();
+            //Topology generator 1:
             System.out.println("Using topology generator: " + Native_GraphTopology.algorithm);
             Topology topology = Native_GraphTopology.generateTopology(graph);
             //print the topology:-
-            System.out.print("topology: ");
+            System.out.print("Topology: ");
             topology.printTopology();
-
             //Test this topology:-
             int commCost = TopologyEvaluator.commCost(graph, topology);
             System.out.println("Communication cost: " + commCost);
+            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            System.out.println();
 
-            float linkUtil = TopologyEvaluator.linkUtilization(graph, topology);
-            System.out.println("Link utilization: " + linkUtil);
-        }
-
-        System.out.println();
-
-        for (Graph graph : graphList) {
+            //Topology generator 2:
             System.out.println("Using topology generator: " + Basic_NonFaultTolerant.algorithm);
-            Topology topology = Basic_NonFaultTolerant.generateTopology(graph);
+            topology = Basic_NonFaultTolerant.generateTopology(graph);
             //print the topology:-
-            System.out.print("topology: ");
+            System.out.print("Topology: ");
             topology.printTopology();
-
             //Test this topology:-
-            int commCost = TopologyEvaluator.commCost(graph, topology);
+            commCost = TopologyEvaluator.commCost(graph, topology);
             System.out.println("Communication cost: " + commCost);
+            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            System.out.println();
 
-            float linkUtil = TopologyEvaluator.linkUtilization(graph, topology);
-            System.out.println("Link utilization: " + linkUtil);
+            //Topology generator 3:
+            System.out.println("Using topology generator: " + PoorestNeighbour_LinkFaultTolerant.algorithm);
+            topology = PoorestNeighbour_LinkFaultTolerant.generateTopology(graph);
+            //print the topology:-
+            System.out.print("Topology: ");
+            topology.printTopology();
+            //Test this topology:-
+            commCost = TopologyEvaluator.commCost(graph, topology);
+            System.out.println("Communication cost: " + commCost);
+            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            System.out.println();
+
+            System.out.println();
+            System.out.println();
         }
 
-        System.out.println();
-
-        for (Graph graph : graphList) {
-            System.out.println("Using topology generator: " + Native_GraphTopology.algorithm);
-            Topology topology = Native_GraphTopology.generateTopology(graph);
-            //print the topology:-
-            System.out.print("topology: ");
-            topology.printTopology();
-
-            //Test this topology:-
-            int commCost = TopologyEvaluator.commCost(graph, topology);
-            System.out.println("Communication cost: " + commCost);
-
-            float linkUtil = TopologyEvaluator.linkUtilization(graph, topology);
-            System.out.println("Link utilization: " + linkUtil);
-        }
     }
 
 }

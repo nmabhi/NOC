@@ -1,8 +1,6 @@
 package mapper;
 
-import java.util.*;
-
-import static mapper.Topology.*;
+import java.util.ListIterator;
 
 /**
  * Created by Xorcist on 2/28/2017.
