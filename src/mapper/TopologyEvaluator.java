@@ -13,7 +13,7 @@ public class TopologyEvaluator {
         int sum = 0;
         while (itr.hasNext()) {
             Edge edge = itr.next();
-            int hops = topology.checkConnection(edge);
+            int hops = topology.hops(edge);
             if (hops <= 0) {
                 System.out.print("Invalid topology! ");
                 System.out.println("Nodes" + edge.node1 + " & " + edge.node2 + " have no connection!");
@@ -135,15 +135,20 @@ public class TopologyEvaluator {
             } catch (Exception e) {
             }
         }
-        return faultTolerantLinks * 100.0f / topology.numberOfLinks;
+        return faultTolerantLinks * 100.0f / topology.numberOfLinks();
     }
 
-    public static boolean checkLinkFaultTolerance(Edge edge, Topology topology) throws Exception {
-        int hops = topology.checkConnection(edge);
-        if (hops == 0) return false;
+    public static boolean checkLinkFaultTolerance(Integer a, Integer b, Topology topology) throws Exception {
+        return checkLinkFaultTolerance(new Edge(a, b), topology);
+    }
+
+    public static boolean checkLinkFaultTolerance(Edge edge, Topology inpTopology) throws Exception {
+        Topology topology = inpTopology.clone();
+        int hops = topology.hops(edge);
+        if (hops == -1) return false;
         else if (hops == 1) {
             topology.removeConnection(edge);
-            boolean ret = (topology.checkConnection(edge) > 0);
+            boolean ret = (topology.hops(edge) > 0);
             topology.addConnection(edge);
             return ret;
         } else throw new Exception("not a link");

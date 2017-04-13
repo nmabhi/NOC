@@ -9,6 +9,8 @@ import java.util.List;
 public class Graph {
     public List<Edge> edges = new ArrayList<>();
 
+    public int numberOfNodes;
+
     public void insert(Edge edge) {
         int i = edges.size();
         while (i > 0) {

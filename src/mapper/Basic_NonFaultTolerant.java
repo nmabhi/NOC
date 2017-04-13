@@ -14,8 +14,8 @@ public class Basic_NonFaultTolerant {
         ListIterator<Edge> itr = inputGraph.edges.listIterator();
         while (itr.hasNext()) {
             Edge edge = itr.next();
-            int hops = outputTopology.checkConnection(edge);
-            if (hops == 0) {
+            int hops = outputTopology.hops(edge);
+            if (hops == -1) {
                 outputTopology.addConnection(edge);
             }
         }

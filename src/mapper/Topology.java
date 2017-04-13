@@ -11,7 +11,6 @@ import static java.lang.Integer.min;
  * Created by Xorcist on 10-04-2017.
  */
 public class Topology {
-    public int numberOfLinks = 0;
     public HashMap<Integer, List<Integer>> connections = new HashMap<>();
     private List<Integer> visitedNodes = new ArrayList<>();
     private List<Integer> visitedNodesFT = new ArrayList<>();
@@ -21,18 +20,49 @@ public class Topology {
         System.out.println(connections.entrySet().toString());
     }
 
-    public int checkConnection(Edge edge) {
-        Integer node1 = edge.node1;
-        Integer node2 = edge.node2;
+    public int numberOfLinks() {
+        int n = 0;
+        for (Integer key : connections.keySet()) {
+            n += connections.get(key).size();
+        }
+        return n / 2;
+    }
+
+    public int hops(Edge edge) {
+        return hops(edge.node1, edge.node2);
+    }
+
+    public boolean checkConnection(Edge edge) {
+        return checkConnection(edge.node1, edge.node2);
+    }
+
+    public boolean checkConnection(Integer node1, Integer node2) {
+        if (connections.containsKey(node1) && connections.containsKey(node2)) {
+            boolean a = connections.get(node1).contains(node2);
+            boolean b = connections.get(node2).contains(node1);
+            if (a && b) return true;
+            else if (!a && !b) return false;
+            System.out.println("Corrupted topology!");
+            return false;
+
+        }
+        return false;
+    }
+
+    public int hops(Integer node1, Integer node2) {
         if (!connections.containsKey(node1) || !connections.containsKey(node1)) {
+            return -1;
+        } else if (node1 == node2) {
             return 0;
         } else {
             visitedNodes.clear();
-            return checkConnectionIterator(node1, node2, 0);
+            int hopsIterator = hopsIterator(node1, node2, 0);
+            if (hopsIterator == 0) return -1;
+            return hopsIterator;
         }
     }
 
-    private int checkConnectionIterator(Integer node1, Integer node2, int hops) {
+    private int hopsIterator(Integer node1, Integer node2, int hops) {
         hops++;
         int ret = 0;
         visitedNodes.add(node1);
@@ -44,7 +74,7 @@ public class Topology {
         while (itr.hasNext()) {
             Integer nextNode = Integer.valueOf(itr.next().toString());
             if (!visitedNodes.contains(nextNode)) {
-                int temp = checkConnectionIterator(nextNode, node2, hops);
+                int temp = hopsIterator(nextNode, node2, hops);
                 if (temp > 0) {
                     if (ret > 0) ret = min(ret, temp);
                     else ret = temp;
@@ -55,38 +85,46 @@ public class Topology {
     }
 
     public void addConnection(Edge edge) {
-        numberOfLinks++;
-        Integer a = edge.node1;
-        Integer b = edge.node2;
-        if (connections.containsKey(a)) {
-            connections.get(a).add(b);
-        } else {
-            List<Integer> list = new ArrayList<>();
-            list.add(b);
-            connections.put(a, list);
-        }
+        addConnection(edge.node1, edge.node2);
+    }
 
-        if (connections.containsKey(b)) {
-            connections.get(b).add(a);
-        } else {
-            List<Integer> list = new ArrayList<>();
-            list.add(a);
-            connections.put(b, list);
+    public void addConnection(Integer a, Integer b) {
+        if (!checkConnection(a, b)) {
+            if (connections.containsKey(a)) {
+                connections.get(a).add(b);
+            } else {
+                List<Integer> list = new ArrayList<>();
+                list.add(b);
+                connections.put(a, list);
+            }
+
+            if (connections.containsKey(b)) {
+                connections.get(b).add(a);
+            } else {
+                List<Integer> list = new ArrayList<>();
+                list.add(a);
+                connections.put(b, list);
+            }
         }
     }
 
     public boolean removeConnection(Edge edge) {
-        numberOfLinks--;
-        Integer a = edge.node1;
-        Integer b = edge.node2;
+        return removeConnection(edge.node1, edge.node2);
+    }
+
+    public boolean removeConnection(Integer a, Integer b) {
         return connections.get(a).remove(b) && connections.get(b).remove(a);
     }
-/*
-    //for finding the link with lowest commCost
-    public Integer minCostLink(Integer node, Graph inputGraph) {
-        for (int i = inputGraph.edges.size(); i > 0; i--) {
 
+    public Topology clone() {
+        Topology output = new Topology();
+        HashMap<Integer, List<Integer>> newConnections = new HashMap<>();
+        for (Integer key : connections.keySet()) {
+            List values = new ArrayList<Integer>();
+            values.addAll(connections.get(key));
+            newConnections.put(key, values);
         }
-    }*/
-
+        output.connections = newConnections;
+        return output;
+    }
 }
