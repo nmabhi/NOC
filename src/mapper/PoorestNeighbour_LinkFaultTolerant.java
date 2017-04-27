@@ -47,9 +47,11 @@ public class PoorestNeighbour_LinkFaultTolerant {
                                 if (util < lowestUtil && neighbour != b) poorestNeighbour = neighbour;
                             }
                         }
-                        newLinkages.put(joinee, poorestNeighbour);
-                        linkUtilMap.get(joinee).put(poorestNeighbour, 0);
-                        linkUtilMap.get(poorestNeighbour).put(joinee, 0);
+                        if (poorestNeighbour != 0) {
+                            newLinkages.put(joinee, poorestNeighbour);
+                            linkUtilMap.get(joinee).put(poorestNeighbour, 0);
+                            linkUtilMap.get(poorestNeighbour).put(joinee, 0);
+                        }
                     }
                 }
             }
