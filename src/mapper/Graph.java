@@ -15,9 +15,7 @@ public class Graph {
         int i = edges.size();
         while (i > 0) {
             i--;
-            if (edge.weight > edges.get(i).weight) {
-                break;
-            } else {
+            if (edge.weight < edges.get(i).weight) {
                 i++;
                 break;
             }
