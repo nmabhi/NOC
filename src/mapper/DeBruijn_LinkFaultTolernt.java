@@ -3,10 +3,10 @@ package mapper;
 /**
  * Created by Xorcist on 13-04-2017.
  */
-public class DeBruijn_LinkFaultTolernt {
-    public static String algorithm = "De Bruijn's sequence";
+public class DeBruijn_LinkFaultTolernt implements Topology_generator {
+    public final String algorithm = "De Bruijn's sequence";
 
-    public static Topology generateTopology(Graph graph) {
+    public Topology generateTopology(Graph graph) {
         int N = graph.numberOfNodes;
         Topology topology = new Topology();
         topology.addConnection(1, 2);
