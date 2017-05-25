@@ -11,11 +11,9 @@ import java.util.Scanner;
 /**
  * Created by Xorcist on 10-04-2017.
  */
-public class Main {
+public class Main_1 {
 
     public static void main(String[] args) {
-        List<Graph> graphList = new ArrayList<>();
-
         /*
         * input format:-
         * First line contains number of input graphs.For each graph, its first line contains two integers N(number of nodes) and M(number of edges).
@@ -28,47 +26,54 @@ public class Main {
         2 3 5
         2 4 1
         */
-        //taking input from a file and output to a file:
-        try {
-            System.setIn(new FileInputStream(new File("resources/input.txt")));
-            System.setOut(new PrintStream(new File("resources/output.txt")));
-        } catch (Exception e) {
-        }
-        //comment out the above code to not redirect stdIn/stdOut from/to a file.
 
-
-        // taking input from stdIn:
-        Scanner input = new Scanner(System.in);
-
-        int T = input.nextInt();
-        for (int t = 0; t < T; t++) {
-            int N = input.nextInt();
-            int M = input.nextInt();
-
-            Graph graph = new Graph();
-            graph.numberOfNodes = N;
-            for (int m = 0; m < M; m++) {
-                Integer n1 = input.nextInt();
-                Integer n2 = input.nextInt();
-                Integer w = input.nextInt();
-                Edge edge = new Edge(n1, n2, w);
-                graph.insert(edge);
+        for (int serialNo = 1; serialNo <= 43; serialNo++) {
+            if (serialNo == 16 || serialNo == 24){
+                continue;
             }
-            graphList.add(graph);
-        }
+            //taking input from a file and output to a file:
+            try {
+                System.setIn(new FileInputStream(new File("resources/inputGraphs/Graph" + serialNo + ".txt")));
+                File out = new File("resources/outputGraphs/Graph" + serialNo + "Output.txt");
+                out.createNewFile();
+                System.setOut(new PrintStream(out));
+            } catch (Exception e) {
+                String ex = e.getMessage();
+            }
+            //comment out the above code to not redirect stdIn/stdOut from/to a file.
 
-        //Input graph(s) taken.
 
-        //to print all graphs:
+            // taking input from stdIn:
+            Scanner input = new Scanner(System.in);
+            Graph graph = new Graph();
+
+            int T = input.nextInt();
+            for (int t = 0; t < T; t++) {
+                int N = input.nextInt();
+                int M = input.nextInt();
+
+
+                graph.numberOfNodes = N;
+                for (int m = 0; m < M; m++) {
+                    Integer n1 = input.nextInt();
+                    Integer n2 = input.nextInt();
+                    Integer w = input.nextInt();
+                    Edge edge = new Edge(n1, n2, w);
+                    graph.insert(edge);
+                }
+            }
+
+            //Input graph(s) taken.
+
+            //to print all graphs:
        /* for (Graph graph : graphList) {
             graph.printInputGraph();
         }*/
 
-        // Now applying any of the algorithm classes to generate topology.*/
+            // Now applying any of the algorithm classes to generate topology.*/
 
-        int g = 0;
-        for (Graph graph : graphList) {
-            System.out.println("For graph " + ++g);
+
+            System.out.println("For graph " + serialNo);
             graph.printInputGraph();
             System.out.println();
             //Topology generator 1:

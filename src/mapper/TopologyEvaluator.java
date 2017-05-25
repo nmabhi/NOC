@@ -119,7 +119,11 @@ public class TopologyEvaluator {
     }
 
     public static float linkFaultTolerance(Graph graph, Topology topology) {
-        float faultTolerantLinks = 0;
+        return faultTolerantLinks(graph, topology).size() * 100.0f / topology.numberOfLinks();
+    }
+
+    private static List<Edge> faultTolerantLinks(Graph graph, Topology topology) {
+        List<Edge> faultTolerantLinks = new ArrayList<Edge>();
         List<Edge> edges = new ArrayList<Edge>();
         for (Map.Entry entry : topology.connections.entrySet()) {
             Integer node1 = (Integer) entry.getKey();
@@ -131,11 +135,21 @@ public class TopologyEvaluator {
         }
         for (Edge edge : edges) {
             try {
-                if (checkLinkFaultTolerance(edge, topology)) faultTolerantLinks++;
+                if (checkLinkFaultTolerance(edge, topology)) faultTolerantLinks.add(edge);
             } catch (Exception e) {
             }
         }
-        return faultTolerantLinks * 100.0f / topology.numberOfLinks();
+        return faultTolerantLinks;
+    }
+
+    public static String printFaultTolerantLinks(Graph graph, Topology topology) {
+        String ret = "";
+        List<Edge> edges = faultTolerantLinks(graph, topology);
+        for (int i = 0; i < edges.size(); i++) {
+            Edge edge = edges.get(i);
+            ret += edge.node1 + " - " + edge.node2 + ";  ";
+        }
+        return ret;
     }
 
     public static boolean checkLinkFaultTolerance(Integer a, Integer b, Topology topology) throws Exception {
