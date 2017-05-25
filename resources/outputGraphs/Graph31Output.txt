@@ -1,0 +1,48 @@
+For graph 31
+3 - 3 : 128.0
+1 - 3 : 128.0
+4 - 3 : 60.0
+3 - 2 : 52.0
+2 - 2 : 50.0
+1 - 2 : 50.0
+2 - 1 : 44.0
+4 - 2 : 0.0
+2 - 3 : 0.0
+1 - 1 : 0.0
+
+Using topology generator: Topology generator
+Topology: [1=[3], 2=[3], 3=[3, 3, 1, 4, 2], 4=[3]]
+Invalid topology! Nodes3 & 3 have no connection!
+Communication cost: 0
+Link utilization graph: {1={3=5}, 2={3=7}, 3={1=5, 2=7, 3=1, 4=2}, 4={3=2}}
+Average link utilization: 4.142857
+Fault tolerant links: 
+Link fault tolerance: 0.0%
+
+Using topology generator: Topology generator
+Topology: [1=[3, 2, 1, 1], 2=[3, 2, 2, 1, 4], 3=[3, 3, 1, 4, 2], 4=[3, 2]]
+Invalid topology! Nodes3 & 3 have no connection!
+Communication cost: 0
+Link utilization graph: {1={1=1, 2=2, 3=1}, 2={1=2, 2=1, 3=2, 4=1}, 3={1=1, 2=2, 3=1, 4=1}, 4={2=1, 3=1}}
+Average link utilization: 1.3076923
+Fault tolerant links: 1 - 3;  1 - 2;  2 - 3;  2 - 4;  3 - 4;  
+Link fault tolerance: 62.5%
+
+Using topology generator: Topology generator
+Topology: [1=[3, 2, 1, 1], 2=[3, 2, 2, 1, 4], 3=[3, 3, 1, 4, 2], 4=[3, 2]]
+Invalid topology! Nodes3 & 3 have no connection!
+Communication cost: 0
+Link utilization graph: {1={1=1, 2=2, 3=1}, 2={1=2, 2=1, 3=2, 4=1}, 3={1=1, 2=2, 3=1, 4=1}, 4={2=1, 3=1}}
+Average link utilization: 1.3076923
+Fault tolerant links: 1 - 3;  1 - 2;  2 - 3;  2 - 4;  3 - 4;  
+Link fault tolerance: 62.5%
+
+Using topology generator: Topology generator
+Topology: [1=[2, 3], 2=[1, 3, 4], 3=[2, 4, 1], 4=[2, 3]]
+Invalid topology! Nodes3 & 3 have no connection!
+Communication cost: 0
+Link utilization graph: {1={2=6, 3=5}, 2={1=6, 3=6, 4=3}, 3={1=5, 2=6, 4=3}, 4={2=3, 3=3}}
+Average link utilization: 4.6
+Fault tolerant links: 1 - 2;  1 - 3;  2 - 3;  2 - 4;  3 - 4;  
+Link fault tolerance: 100.0%
+
