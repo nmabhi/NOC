@@ -50,7 +50,7 @@ public class Main {
             for (int m = 0; m < M; m++) {
                 Integer n1 = input.nextInt();
                 Integer n2 = input.nextInt();
-                Integer w = input.nextInt();
+                Double w = input.nextDouble();
                 Edge edge = new Edge(n1, n2, w);
                 graph.insert(edge);
             }
