@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,6 +39,10 @@ INF INF INF INF INF INF INF INF INF INF  16 INF  16  16   0 INF
 INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
 
           */
+
+        //Create arrays for succinct outputs
+        double[][] output = new double[43][13];
+
         for (int serialNo = 1; serialNo <= 43; serialNo++) {
             if (serialNo == 16 || serialNo == 24){
                 continue;
@@ -72,18 +77,14 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             }
 
             //Input graph(s) taken.
-
-            //to print all graphs:
-       /* for (Graph graph : graphList) {
-            graph.printInputGraph();
-        }*/
-
-            // Now applying any of the algorithm classes to generate topology.*/
+            // Now applying any of the algorithm classes to generate topology.
 
 
             System.out.println("For graph " + serialNo);
             graph.printInputGraph();
             System.out.println();
+            output[serialNo - 1][0] = graph.numberOfNodes;
+
             //Topology generator 1:
             System.out.println("Using topology generator: " + Native_GraphTopology.algorithm);
             Topology topology = Native_GraphTopology.generateTopology(graph);
@@ -91,11 +92,17 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
-            System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
+            double commCost = TopologyEvaluator.commCost(graph, topology);
+            output[serialNo - 1][1] = commCost;
+            System.out.println("Communication cost: " + commCost);
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
-            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            double avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
+            System.out.println("Average link utilization: " + avgLinkUtili);
+            output[serialNo - 1][2] = avgLinkUtili;
             System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
-            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            double linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
+            System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
+            output[serialNo - 1][3] = linkFaultTolerance;
             System.out.println();
 
             //Topology generator 2:
@@ -105,11 +112,17 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
-            System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
+            commCost = TopologyEvaluator.commCost(graph, topology);
+            output[serialNo - 1][4] = commCost;
+            System.out.println("Communication cost: " + commCost);
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
-            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
+            System.out.println("Average link utilization: " + avgLinkUtili);
+            output[serialNo - 1][5] = avgLinkUtili;
             System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
-            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
+            System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
+            output[serialNo - 1][6] = linkFaultTolerance;
             System.out.println();
 
             //Topology generator 3:
@@ -119,11 +132,17 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
-            System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
+            commCost = TopologyEvaluator.commCost(graph, topology);
+            output[serialNo - 1][7] = commCost;
+            System.out.println("Communication cost: " + commCost);
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
-            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
+            System.out.println("Average link utilization: " + avgLinkUtili);
+            output[serialNo - 1][8] = avgLinkUtili;
             System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
-            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
+            System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
+            output[serialNo - 1][9] = linkFaultTolerance;
             System.out.println();
 
             //Topology generator 4:
@@ -133,14 +152,35 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
-            System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
+            commCost = TopologyEvaluator.commCost(graph, topology);
+            output[serialNo - 1][10] = commCost;
+            System.out.println("Communication cost: " + commCost);
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
-            System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
+            avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
+            System.out.println("Average link utilization: " + avgLinkUtili);
+            output[serialNo - 1][11] = avgLinkUtili;
             System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
-            System.out.println("Link fault tolerance: " + TopologyEvaluator.linkFaultTolerance(graph, topology) + "%");
+            linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
+            System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
+            output[serialNo - 1][12] = linkFaultTolerance;
             System.out.println();
         }
+        /*print succinct output*/
 
+        try {
+            File out = new File("resources/outputGraphs/00_SuccinctOutput.txt");
+            out.createNewFile();
+            System.setOut(new PrintStream(out));
+        } catch (Exception e) {
+            String ex = e.getMessage();
+        }
+        for (int i = 0; i < 43; i++) {
+            System.out.print("{");
+            for (int j = 0; j < 12; j++) {
+                System.out.print(output[i][j] + ", ");
+            }
+            System.out.println(output[i][12] + "}");
+        }
     }
 
 }

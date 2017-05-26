@@ -5,7 +5,7 @@ For graph 42
 
 Using topology generator: Copy as it is from input graph
 Topology: [1=[3, 2], 2=[1, 4], 3=[1], 4=[2]]
-Communication cost: 538
+Communication cost: 538.0
 Link utilization graph: {1={2=1, 3=1}, 2={1=1, 4=1}, 3={1=1}, 4={2=1}}
 Average link utilization: 1.0
 Fault tolerant links: 
@@ -13,7 +13,7 @@ Link fault tolerance: 0.0%
 
 Using topology generator: Basic non-fault tolerant
 Topology: [1=[3, 2], 2=[1, 4], 3=[1], 4=[2]]
-Communication cost: 538
+Communication cost: 538.0
 Link utilization graph: {1={2=1, 3=1}, 2={1=1, 4=1}, 3={1=1}, 4={2=1}}
 Average link utilization: 1.0
 Fault tolerant links: 
@@ -21,7 +21,7 @@ Link fault tolerance: 0.0%
 
 Using topology generator: poorest neighbour link fault tolerance
 Topology: [1=[3, 2, 4], 2=[1, 4, 3], 3=[1, 2, 4], 4=[2, 1, 3]]
-Communication cost: 538
+Communication cost: 538.0
 Link utilization graph: {1={2=1, 3=1, 4=0}, 2={1=1, 3=0, 4=1}, 3={1=1, 2=0, 4=0}, 4={1=0, 2=1, 3=0}}
 Average link utilization: 0.5
 Fault tolerant links: 1 - 3;  1 - 2;  1 - 4;  2 - 4;  2 - 3;  3 - 4;  
@@ -29,9 +29,9 @@ Link fault tolerance: 100.0%
 
 Using topology generator: De Bruijn's sequence
 Topology: [1=[2, 3], 2=[1, 3, 4], 3=[2, 4, 1], 4=[2, 3]]
-Communication cost: 538
+Communication cost: 538.0
 Link utilization graph: {1={2=1, 3=1}, 2={1=1, 3=0, 4=1}, 3={1=1, 2=0, 4=0}, 4={2=1, 3=0}}
-Average link utilization: 0.6
+Average link utilization: 0.6000000238418579
 Fault tolerant links: 1 - 2;  1 - 3;  2 - 3;  2 - 4;  3 - 4;  
 Link fault tolerance: 100.0%
 
