@@ -1,0 +1,14 @@
+Columns:-
+1. number of nodes in graph
+2. Algo1 - communication cost
+3. Algo1 - link utilization
+4. Algo1 - Link fault tolerance
+5. Algo2 - communication cost
+6. Algo2 - link utilization
+7. Algo2 - Link fault tolerance
+8. Algo3 - communication cost
+9. Algo3 - link utilization
+10. Algo3 - Link fault tolerance
+11. Algo4 - communication cost
+12. Algo4 - link utilization
+13. Algo4 - Link fault tolerance
