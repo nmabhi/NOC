@@ -5,11 +5,12 @@ import java.util.*;
 /**
  * Created by Xorcist on 11-04-2017.
  */
-public class PoorestNeighbour_LinkFaultTolerant {
-    public static String algorithm = "poorest neighbour link fault tolerance";
+public class PoorestNeighbour_LinkFaultTolerant implements Topology_generator {
+    public final String algorithm = "poorest neighbour link fault tolerance";
 
-    public static Topology generateTopology(Graph graph) {
-        Topology topology = Native_GraphTopology.generateTopology(graph);
+    public Topology generateTopology(Graph graph) {
+        Native_GraphTopology tempObject = new Native_GraphTopology();
+        Topology topology = tempObject.generateTopology(graph);
         HashMap<Integer, HashMap<Integer, Integer>> linkUtilMap = TopologyEvaluator.linkUtilizationGraph(graph, topology);
         HashMap<Integer, Integer> newLinkages = new HashMap<Integer, Integer>();
         Iterator itr = topology.connections.entrySet().iterator();
