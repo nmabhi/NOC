@@ -7,7 +7,6 @@ import java.util.*;
  * Created by Xorcist on 10-04-2017.
  */
 public class TopologyEvaluator {
-
     public static int commCost(Graph graph, Topology topology) {
         ListIterator<Edge> itr = graph.edges.listIterator();
         int sum = 0;

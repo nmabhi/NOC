@@ -1,14 +1,18 @@
 Columns:-
 1. number of nodes in graph
-2. Algo1 - communication cost
-3. Algo1 - link utilization
-4. Algo1 - Link fault tolerance
-5. Algo2 - communication cost
-6. Algo2 - link utilization
-7. Algo2 - Link fault tolerance
-8. Algo3 - communication cost
-9. Algo3 - link utilization
-10. Algo3 - Link fault tolerance
-11. Algo4 - communication cost
-12. Algo4 - link utilization
-13. Algo4 - Link fault tolerance
+2. Algo1 - number of links
+3. Algo1 - communication cost
+4. Algo1 - link utilization
+5. Algo1 - Link fault tolerance
+6. Algo2 - number of links
+7. Algo2 - communication cost
+8. Algo2 - link utilization
+9. Algo2 - Link fault tolerance
+10. Algo3 - number of links
+11. Algo3 - communication cost
+12. Algo3 - link utilization
+13. Algo3 - Link fault tolerance
+14. Algo4 - number of links
+15. Algo4 - communication cost
+16. Algo4 - link utilization
+17. Algo4 - Link fault tolerance

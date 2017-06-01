@@ -79,6 +79,7 @@ public class Main {
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
+            System.out.println("Number of Links:- " + topology.numberOfLinks());
             System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
             System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
@@ -93,6 +94,7 @@ public class Main {
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
+            System.out.println("Number of Links:- " + topology.numberOfLinks());
             System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
             System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
@@ -107,6 +109,7 @@ public class Main {
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
+            System.out.println("Number of Links:- " + topology.numberOfLinks());
             System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
             System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
@@ -121,6 +124,7 @@ public class Main {
             System.out.print("Topology: ");
             topology.printTopology();
             //Test this topology:-
+            System.out.println("Number of Links:- " + topology.numberOfLinks());
             System.out.println("Communication cost: " + TopologyEvaluator.commCost(graph, topology));
             System.out.println("Link utilization graph: " + TopologyEvaluator.linkUtilizationGraph(graph, topology));
             System.out.println("Average link utilization: " + TopologyEvaluator.avgLinkUtilization(graph, topology));
