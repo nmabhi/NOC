@@ -1,3 +1,9 @@
+Algorithms:-
+1. Native topology
+2. Basic non fault tolerant topology
+3. Poorest neighbour algo
+4. De Bruijn's algo
+
 Columns:-
 1. number of nodes in graph
 2. Algo1 - number of links
