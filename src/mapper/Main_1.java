@@ -44,9 +44,7 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
         double[][] output = new double[43][17];
 
         for (int serialNo = 1; serialNo <= 43; serialNo++) {
-            if (serialNo == 16 || serialNo == 24){
-                continue;
-            }
+            if (serialNo == 16 || serialNo == 24) continue;
             //taking input from a file and output to a file:
             try {
                 System.setIn(new FileInputStream(new File("resources/inputGraphs/Graph" + serialNo + ".txt")));

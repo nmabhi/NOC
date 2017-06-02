@@ -62,17 +62,17 @@ public class PoorestNeighbour_LinkFaultTolerant {
                             //get the (highest?) node with lowest port utilization in the rest of the topology
                             Integer poorestNode = getPoorestNode(linkUtilMap, a, b);
                             //connect 'a' to poorestNode.
-                            newLinkages.put(poorestNode, a);
+                            newLinkages.put(a, poorestNode);
                             linkUtilMap.get(poorestNode).put(a, 0);
                             linkUtilMap.get(a).put(poorestNode, 0);
                             //new benchmark and poorestNeighbourOfPNode
-                            Integer benchmark1 = 2147483647;
+                            int benchmark1 = 2147483647;
                             Integer poorestNeighbourOfPNode = 0;
                             Iterator itr_lum_pNode = linkUtilMap.get(poorestNode).entrySet().iterator();
                             while (itr_lum_pNode.hasNext()) {
                                 Map.Entry entry_pNode = (Map.Entry) itr_lum_pNode.next();
                                 Integer neighbour = (Integer) (entry_pNode).getKey();
-                                Integer util1 = (Integer) (entry_pNode).getValue();
+                                int util1 = linkUtilMap.get(neighbour).size();
                                 if (util1 < benchmark1 && neighbour != a && neighbour != b) {
                                     poorestNeighbourOfPNode = neighbour;
                                     benchmark1 = util1;
@@ -92,9 +92,9 @@ public class PoorestNeighbour_LinkFaultTolerant {
         }
 
         for (Map.Entry entry : newLinkages.entrySet()) {
-            Integer joinee = (Integer) entry.getKey();
-            Integer poorestNeighbour = (Integer) entry.getValue();
-            topology.addConnection(joinee, poorestNeighbour);
+            Integer node1 = (Integer) entry.getKey();
+            Integer node2 = (Integer) entry.getValue();
+            topology.addConnection(node1, node2);
         }
         return topology;
     }
@@ -106,7 +106,7 @@ public class PoorestNeighbour_LinkFaultTolerant {
         while (itr.hasNext()) {
             Map.Entry entry = (Map.Entry) itr.next();
             Integer currentNode = (Integer) entry.getKey();
-            int ports = ((HashMap<Integer, Integer>) entry.getValue()).size();
+            int ports = LUM.get(currentNode).size();
             if (ports <= benchmark && currentNode != exception1 && currentNode != exception2) {
                 //exceptions refer to the nodes of the link which we want to make fault tolerant.
                 benchmark = ports;
