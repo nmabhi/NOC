@@ -141,9 +141,39 @@ public class TopologyEvaluator {
         return faultTolerantLinks;
     }
 
+    private static List<Edge> nonFaultTolerantLinks(Graph graph, Topology topology) {
+        List<Edge> faultTolerantLinks = new ArrayList<Edge>();
+        List<Edge> edges = new ArrayList<Edge>();
+        for (Map.Entry entry : topology.connections.entrySet()) {
+            Integer node1 = (Integer) entry.getKey();
+            for (Integer node2 : (List<Integer>) entry.getValue()) {
+                if (node1 < node2) {
+                    edges.add(new Edge(node1, node2));
+                }
+            }
+        }
+        for (Edge edge : edges) {
+            try {
+                if (!checkLinkFaultTolerance(edge, topology)) faultTolerantLinks.add(edge);
+            } catch (Exception e) {
+            }
+        }
+        return faultTolerantLinks;
+    }
+
     public static String printFaultTolerantLinks(Graph graph, Topology topology) {
         String ret = "";
         List<Edge> edges = faultTolerantLinks(graph, topology);
+        for (int i = 0; i < edges.size(); i++) {
+            Edge edge = edges.get(i);
+            ret += edge.node1 + " - " + edge.node2 + ";  ";
+        }
+        return ret;
+    }
+
+    public static String printNonFaultTolerantLinks(Graph graph, Topology topology) {
+        String ret = "";
+        List<Edge> edges = nonFaultTolerantLinks(graph, topology);
         for (int i = 0; i < edges.size(); i++) {
             Edge edge = edges.get(i);
             ret += edge.node1 + " - " + edge.node2 + ";  ";

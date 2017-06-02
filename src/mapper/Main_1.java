@@ -102,7 +102,7 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             double avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
             System.out.println("Average link utilization: " + avgLinkUtili);
             output[serialNo - 1][3] = avgLinkUtili;
-            System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
+            System.out.println("Non-fault tolerant links: " + TopologyEvaluator.printNonFaultTolerantLinks(graph, topology));
             double linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
             System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
             output[serialNo - 1][4] = linkFaultTolerance;
@@ -125,7 +125,7 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
             System.out.println("Average link utilization: " + avgLinkUtili);
             output[serialNo - 1][7] = avgLinkUtili;
-            System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
+            System.out.println("Non-fault tolerant links: " + TopologyEvaluator.printNonFaultTolerantLinks(graph, topology));
             linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
             System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
             output[serialNo - 1][8] = linkFaultTolerance;
@@ -148,7 +148,7 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
             System.out.println("Average link utilization: " + avgLinkUtili);
             output[serialNo - 1][11] = avgLinkUtili;
-            System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
+            System.out.println("Non-fault tolerant links: " + TopologyEvaluator.printNonFaultTolerantLinks(graph, topology));
             linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
             System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
             output[serialNo - 1][12] = linkFaultTolerance;
@@ -171,7 +171,7 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             avgLinkUtili = TopologyEvaluator.avgLinkUtilization(graph, topology);
             System.out.println("Average link utilization: " + avgLinkUtili);
             output[serialNo - 1][15] = avgLinkUtili;
-            System.out.println("Fault tolerant links: " + TopologyEvaluator.printFaultTolerantLinks(graph, topology));
+            System.out.println("Non-fault tolerant links: " + TopologyEvaluator.printNonFaultTolerantLinks(graph, topology));
             linkFaultTolerance = TopologyEvaluator.linkFaultTolerance(graph, topology);
             System.out.println("Link fault tolerance: " + linkFaultTolerance + "%");
             output[serialNo - 1][16] = linkFaultTolerance;

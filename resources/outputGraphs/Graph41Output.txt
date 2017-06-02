@@ -10,7 +10,7 @@ Number of Links:- 4
 Communication cost: 401.0
 Link utilization graph: {1={2=1, 3=1}, 2={1=1, 4=1, 5=1}, 3={1=1}, 4={2=1}, 5={2=1}}
 Average link utilization: 1.0
-Fault tolerant links: 
+Non-fault tolerant links: 1 - 2;  1 - 3;  2 - 5;  2 - 4;  
 Link fault tolerance: 0.0%
 
 Using topology generator: Basic non-fault tolerant
@@ -19,16 +19,16 @@ Number of Links:- 4
 Communication cost: 401.0
 Link utilization graph: {1={2=1, 3=1}, 2={1=1, 4=1, 5=1}, 3={1=1}, 4={2=1}, 5={2=1}}
 Average link utilization: 1.0
-Fault tolerant links: 
+Non-fault tolerant links: 1 - 2;  1 - 3;  2 - 5;  2 - 4;  
 Link fault tolerance: 0.0%
 
 Using topology generator: poorest neighbour link fault tolerance
-Topology: [1=[2, 3, 5], 2=[1, 5, 4], 3=[1, 5], 4=[2, 5], 5=[2, 1, 3, 4]]
-Number of Links:- 7
+Topology: [1=[2, 3, 4, 5], 2=[1, 5, 4], 3=[1, 4], 4=[2, 1, 3, 5], 5=[2, 4, 1]]
+Number of Links:- 8
 Communication cost: 401.0
-Link utilization graph: {1={2=1, 3=1, 5=0}, 2={1=1, 4=1, 5=1}, 3={1=1, 5=0}, 4={2=1, 5=0}, 5={1=0, 2=1, 3=0, 4=0}}
-Average link utilization: 0.5714285969734192
-Fault tolerant links: 1 - 2;  1 - 3;  1 - 5;  2 - 5;  2 - 4;  3 - 5;  4 - 5;  
+Link utilization graph: {1={2=1, 3=1, 4=0, 5=0}, 2={1=1, 4=1, 5=1}, 3={1=1, 4=0}, 4={1=0, 2=1, 3=0, 5=0}, 5={1=0, 2=1, 4=0}}
+Average link utilization: 0.5
+Non-fault tolerant links: 
 Link fault tolerance: 100.0%
 
 Using topology generator: De Bruijn's sequence
@@ -37,6 +37,6 @@ Number of Links:- 7
 Communication cost: 509.0
 Link utilization graph: {1={2=2, 3=2}, 2={1=2, 3=0, 4=2}, 3={1=2, 2=0, 4=0, 5=1}, 4={2=2, 3=0, 5=1}, 5={3=1, 4=1}}
 Average link utilization: 1.1428571939468384
-Fault tolerant links: 1 - 2;  1 - 3;  2 - 3;  2 - 4;  3 - 5;  3 - 4;  4 - 5;  
+Non-fault tolerant links: 
 Link fault tolerance: 100.0%
 

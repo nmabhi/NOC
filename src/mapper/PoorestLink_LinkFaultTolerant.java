@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by Xorcist on 11-04-2017.
  */
-public class PoorestNeighbour_LinkFaultTolerant {
+public class PoorestLink_LinkFaultTolerant {
     public static String algorithm = "poorest neighbour link fault tolerance";
 
     public static Topology generateTopology(Graph graph) {

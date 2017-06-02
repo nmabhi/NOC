@@ -27,7 +27,7 @@ public class PoorestNeighbour_LinkFaultTolerant {
                     } catch (Exception e) {
                     }
                     if (!temp) {
-                        Integer lowestUtil = 2147483647;
+                        int lowestUtil = 2147483647;
                         Integer poorestNeighbour = 0;
                         Integer joinee = a;
                         if (linkUtilMap.get(b).size() > linkUtilMap.get(a).size()) {
@@ -35,8 +35,11 @@ public class PoorestNeighbour_LinkFaultTolerant {
                             while (itr_lum_b.hasNext()) {
                                 Map.Entry entry_b = (Map.Entry) itr_lum_b.next();
                                 Integer neighbour = (Integer) (entry_b).getKey();
-                                Integer util = (Integer) (entry_b).getValue();
-                                if (util < lowestUtil && neighbour != a) poorestNeighbour = neighbour;
+                                int util = linkUtilMap.get(neighbour).size();
+                                if (util < lowestUtil && neighbour != a) {
+                                    poorestNeighbour = neighbour;
+                                    lowestUtil = util;
+                                }
                             }
                         } else {
                             joinee = b;
@@ -44,8 +47,11 @@ public class PoorestNeighbour_LinkFaultTolerant {
                             while (itr_lum_a.hasNext()) {
                                 Map.Entry entry_a = (Map.Entry) itr_lum_a.next();
                                 Integer neighbour = (Integer) (entry_a).getKey();
-                                Integer util = (Integer) (entry_a).getValue();
-                                if (util < lowestUtil && neighbour != b) poorestNeighbour = neighbour;
+                                int util = linkUtilMap.get(neighbour).size();
+                                if (util < lowestUtil && neighbour != b) {
+                                    poorestNeighbour = neighbour;
+                                    lowestUtil = util;
+                                }
                             }
                         }
                         if (poorestNeighbour != 0) {
