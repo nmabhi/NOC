@@ -15,7 +15,6 @@ public class Main {
 
     public static void main(String[] args) {
         List<Graph> graphList = new ArrayList<>();
-
         /*
         * input format:-
         * First line contains number of input graphs.For each graph, its first line contains two integers N(number of nodes) and M(number of edges).
