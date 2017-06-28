@@ -2,7 +2,8 @@ Algorithms:-
 1. Native topology
 2. Basic non fault tolerant topology
 3. Poorest neighbour - post fix, port util, no port limit, bandwidth priority
-4. De Bruijn's algo
+4. Poorest neighbour - pre fix, port util, no port limit, bandwidth priority
+5. De Bruijn's algo
 
 Columns:-
 1. number of nodes in graph
@@ -22,3 +23,7 @@ Columns:-
 15. Algo4 - communication cost
 16. Algo4 - link utilization
 17. Algo4 - Link fault tolerance
+18. Algo5 - number of links
+19. Algo5 - communication cost
+20. Algo5 - link utilization
+21. Algo5 - Link fault tolerance
