@@ -3,9 +3,6 @@ package mapper;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -130,8 +127,8 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.println();
 
             //Topology generator 3:
-            System.out.println("Using topology generator: " + PoorestNeighbour_LinkFaultTolerant.algorithm);
-            topology = PoorestNeighbour_LinkFaultTolerant.generateTopology(graph);
+            System.out.println("Using topology generator: " + PoorestNeighbour_LinkFaultTolerant_PortUtil_PostFix_NoPortLimit.algorithm);
+            topology = PoorestNeighbour_LinkFaultTolerant_PortUtil_PostFix_NoPortLimit.generateTopology(graph);
             //print the topology:-
             System.out.print("Topology: ");
             topology.printTopology();
@@ -153,8 +150,8 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.println();
 
             //Topology generator 4:
-            System.out.println("Using topology generator: " + DeBruijn_LinkFaultTolernt.algorithm);
-            topology = DeBruijn_LinkFaultTolernt.generateTopology(graph);
+            System.out.println("Using topology generator: " + DeBruijn_LinkFaultTolerant.algorithm);
+            topology = DeBruijn_LinkFaultTolerant.generateTopology(graph);
             //print the topology:-
             System.out.print("Topology: ");
             topology.printTopology();

@@ -3,7 +3,7 @@ package mapper;
 /**
  * Created by Xorcist on 13-04-2017.
  */
-public class DeBruijn_LinkFaultTolernt {
+public class DeBruijn_LinkFaultTolerant {
     public static String algorithm = "De Bruijn's sequence";
 
     public static Topology generateTopology(Graph graph) {

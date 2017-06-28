@@ -1,7 +1,7 @@
 Algorithms:-
 1. Native topology
 2. Basic non fault tolerant topology
-3. Poorest neighbour algo
+3. Poorest neighbour - post fix, port util, no port limit, bandwidth priority
 4. De Bruijn's algo
 
 Columns:-
