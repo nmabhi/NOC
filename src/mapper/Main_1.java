@@ -206,10 +206,10 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
         }
         for (int i = 0; i < 43; i++) {
             System.out.print("{");
-            for (int j = 0; j < 16; j++) {
+            for (int j = 0; j < 20; j++) {
                 System.out.print(output[i][j] + ", ");
             }
-            System.out.println(output[i][16] + "}");
+            System.out.println(output[i][20] + "}");
         }
     }
 
