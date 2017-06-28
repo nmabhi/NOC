@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by Xorcist on 11-04-2017.
  */
 public class PoorestNeighbour_LinkFaultTolerant_LinkUtil_PostFix_NoPortLimit {
-    public static String algorithm = "poorest neighbour link fault tolerance";
+    public static String algorithm = "poorest neighbour - post fix, link util, no port limit, bandwidth priority";
 
     public static Topology generateTopology(Graph graph) {
         Native_GraphTopology tempObject = new Native_GraphTopology();

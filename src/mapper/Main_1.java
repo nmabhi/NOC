@@ -150,7 +150,7 @@ INF INF INF  49  27 INF INF INF INF INF INF INF INF INF INF   0
             System.out.println();
 
             //Topology generator 4:
-            System.out.println("Using topology generator: " + DeBruijn_LinkFaultTolerant.algorithm);
+            System.out.println("Using topology generator: " + PoorestNeighbour_LinkFaultTolerant_PortUtil_PreFix_NoPortLimit.algorithm);
             topology = PoorestNeighbour_LinkFaultTolerant_PortUtil_PreFix_NoPortLimit.generateTopology(graph);
             //print the topology:-
             System.out.print("Topology: ");

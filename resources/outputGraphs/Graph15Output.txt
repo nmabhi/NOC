@@ -27,7 +27,7 @@ Average link utilization: 1.0
 Non-fault tolerant links: 2 - 3;  3 - 4;  4 - 5;  6 - 7;  7 - 8;  8 - 9;  10 - 11;  11 - 12;  12 - 13;  
 Link fault tolerance: 0.0%
 
-Using topology generator: poorest neighbour link fault tolerance
+Using topology generator: poorest neighbour - link fault tolerant, post fix, port util, no port limit, bandwidth priority
 Topology: [2=[3, 4], 3=[4, 2, 5], 4=[5, 3, 2], 5=[4, 3], 6=[7, 8], 7=[8, 6, 9], 8=[9, 7, 6], 9=[8, 7], 10=[11, 12], 11=[12, 10, 13], 12=[13, 11, 10], 13=[12, 11]]
 Number of Links:- 15
 Communication cost: 88077.0
@@ -36,7 +36,7 @@ Average link utilization: 0.6000000238418579
 Non-fault tolerant links: 
 Link fault tolerance: 100.0%
 
-Using topology generator: De Bruijn's sequence
+Using topology generator: poorest neighbour - pre fix, port util, no port limit, bandwidth priority
 Topology: [2=[3, 4], 3=[4, 2, 5], 4=[5, 3, 2], 5=[4, 3], 6=[7, 8], 7=[8, 6, 9], 8=[9, 7, 6], 9=[8, 7], 10=[11, 12], 11=[12, 10, 13], 12=[13, 11, 10], 13=[12, 11]]
 Number of Links:- 15
 Communication cost: 88077.0
