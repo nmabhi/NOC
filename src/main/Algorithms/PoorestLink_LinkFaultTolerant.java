@@ -1,14 +1,21 @@
-package mapper;
+package main.Algorithms;
+
+import main.Basic_Infrastructure.Graph;
+import main.Basic_Infrastructure.Topology;
+import main.Basic_Infrastructure.TopologyEvaluator;
 
 import java.util.*;
 
 /**
  * Created by Xorcist on 11-04-2017.
  */
-public class PoorestLink_LinkFaultTolerant {
-    public static String algorithm = "poorest neighbour link fault tolerance";
+public class PoorestLink_LinkFaultTolerant implements Algorithm {
 
-    public static Topology generateTopology(Graph graph) {
+    public String algorithmName() {
+        return "poorest neighbour link fault tolerance";
+    }
+
+    public Topology generateTopology(Graph graph) {
         Native_GraphTopology tempObject = new Native_GraphTopology();
         Topology topology = tempObject.generateTopology(graph);
         HashMap<Integer, HashMap<Integer, Integer>> linkUtilMap = TopologyEvaluator.linkUtilizationGraph(graph, topology);
@@ -82,7 +89,7 @@ public class PoorestLink_LinkFaultTolerant {
                                 newLinkages.put(b, poorestNeighbourOfPNode);
                                 linkUtilMap.get(poorestNeighbourOfPNode).put(b, 0);
                                 linkUtilMap.get(b).put(poorestNeighbourOfPNode, 0);
-                            }else {
+                            } else {
                                 newLinkages.put(b, poorestNode);
                             }
                         }

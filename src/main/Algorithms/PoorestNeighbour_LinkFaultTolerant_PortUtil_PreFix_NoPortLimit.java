@@ -1,14 +1,22 @@
-package mapper;
+package main.Algorithms;
+
+import main.Basic_Infrastructure.Edge;
+import main.Basic_Infrastructure.Graph;
+import main.Basic_Infrastructure.Topology;
+import main.Basic_Infrastructure.TopologyEvaluator;
 
 import java.util.*;
 
 /**
  * Created by Xorcist on 11-04-2017.
  */
-public class PoorestNeighbour_LinkFaultTolerant_PortUtil_PreFix_NoPortLimit {
-    public static String algorithm = "poorest neighbour - pre fix, port util, no port limit, bandwidth priority";
+public class PoorestNeighbour_LinkFaultTolerant_PortUtil_PreFix_NoPortLimit implements Algorithm {
 
-    public static Topology generateTopology(Graph graph) {
+    public String algorithmName() {
+        return "poorest neighbour - pre fix, port util, no port limit, bandwidth priority";
+    }
+
+    public Topology generateTopology(Graph graph) {
         Native_GraphTopology tempObject = new Native_GraphTopology();
         Topology topology = tempObject.generateTopology(graph);
         HashMap<Integer, List<Integer>> connections = topology.connections;

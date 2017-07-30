@@ -1,4 +1,8 @@
-package mapper;
+package main.Algorithms;
+
+import main.Basic_Infrastructure.Graph;
+import main.Basic_Infrastructure.Topology;
+import main.Basic_Infrastructure.TopologyEvaluator;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,10 +12,13 @@ import java.util.Map;
 /**
  * Created by Xorcist on 11-04-2017.
  */
-public class PoorestNeighbour_LinkFaultTolerant_LinkUtil_PostFix_NoPortLimit {
-    public static String algorithm = "poorest neighbour - post fix, link util, no port limit, bandwidth priority";
+public class PoorestNeighbour_LinkFaultTolerant_LinkUtil_PostFix_NoPortLimit implements Algorithm {
 
-    public static Topology generateTopology(Graph graph) {
+    public String algorithmName() {
+        return "poorest neighbour - post fix, link util, no port limit, bandwidth priority";
+    }
+
+    public Topology generateTopology(Graph graph) {
         Native_GraphTopology tempObject = new Native_GraphTopology();
         Topology topology = tempObject.generateTopology(graph);
         HashMap<Integer, HashMap<Integer, Integer>> linkUtilMap = TopologyEvaluator.linkUtilizationGraph(graph, topology);
@@ -36,7 +43,7 @@ public class PoorestNeighbour_LinkFaultTolerant_LinkUtil_PostFix_NoPortLimit {
                         Integer joinee = a;
                         if (linkUtilMap.get(b).size() > linkUtilMap.get(a).size()) {
                             Iterator itr_lum_b = linkUtilMap.get(b).entrySet().iterator();
-                             while (itr_lum_b.hasNext()) {
+                            while (itr_lum_b.hasNext()) {
                                 Map.Entry entry_b = (Map.Entry) itr_lum_b.next();
                                 Integer neighbour = (Integer) (entry_b).getKey();
                                 Integer util = linkUtilMap.get(neighbour).get(b);

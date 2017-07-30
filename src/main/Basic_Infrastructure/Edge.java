@@ -1,4 +1,4 @@
-package mapper;
+package main.Basic_Infrastructure;
 
 /**
  * Created by Xorcist on 2/28/2017.
