@@ -6,15 +6,15 @@ Algorithms:-
 5. De Bruijn's algo
 
 Columns:-
-1. number of nodes in graph
-2. Algo1 - number of links
-3. Algo1 - communication cost
-4. Algo1 - link utilization
-5. Algo1 - Link fault tolerance
-6. Algo2 - number of links
-7. Algo2 - communication cost
-8. Algo2 - link utilization
-9. Algo2 - Link fault tolerance
+01. number of nodes in graph
+02. Algo1 - number of links
+03. Algo1 - communication cost
+04. Algo1 - link utilization
+05. Algo1 - Link fault tolerance
+06. Algo2 - number of links
+07. Algo2 - communication cost
+08. Algo2 - link utilization
+09. Algo2 - Link fault tolerance
 10. Algo3 - number of links
 11. Algo3 - communication cost
 12. Algo3 - link utilization
