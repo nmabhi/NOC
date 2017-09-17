@@ -1,0 +1,175 @@
+Dear soumya j:
+
+I am sorry to inform you that the following submission  was not selected by the program committee to appear at VLSID 2018:
+
+      Design of Fault Tolerant Topologies for Application
+           Specific Network-on-Chip
+
+The selection process was very competitive. Due to time and space limitations, we could only choose a small number of the submitted papers to appear on the program.  Nonetheless, I still hope you can attend the conference.
+
+I have enclosed the reviewer comments for your perusal.
+
+If you have any additional questions, please feel free to get in touch.
+
+Best Regards,
+Technical Program Chairs
+VLSID 2018
+
+============================================================================
+VLSID 2018 Reviews for Submission #191
+============================================================================
+
+Title: Design of Fault Tolerant Topologies for Application Specific Network-on-Chip
+
+Authors: soumya j, Parth Shah and Abhishek Kanniganti
+============================================================================
+                            REVIEWER #1
+============================================================================
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+1. Abstract is not clear and is claiming any constructive problem definition.
+2. "...components of a computer..." --> what does it mean?
+3. Paper has many sections...10 sections in an article of 6 pages!!
+4. Paragraph 2 in related Work is confusing and difficult to understand.
+5. The paper contains plenty of grammatical errors, like-sentence
+formation, clauses, phrases, voices (active/passive) and most importantly
+about tenses of sentences.
+6. Section 3: Problem is not clear at all. The definitions are standard
+enough and re-defining them does not anyhow increases the value/weightage
+of the paper.
+7. Section 4: The algorithm starts here randomly in the text, and does not
+maintain any standard format. How this minimum spanning tree algorithm is
+special than our traditional ones (Prim's or Kruskal's) ?
+8. Section 5, 6, 7 : Very bad representation of algorithms and poor
+explanation does not make any sense at all. How are these algorithms
+related to the problem proposed in this paper?
+9. Problems in indentation
+10. Section 8, 9 : Conclusion from Observation and Test are not clear.
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+The authors proposed two algorithms for designing fault-tolerant topologies for
+application specific NoCs.
+
+Definition 4 states that a link lij is said to be fault-tolerant if alternate
+paths exists between ri and rj. But, what is the guarantee that there are no
+faults on the alternate path?
+
+Figure 2 is not referred anywhere.
+
+Section 4 title is misleading. For better flow, Section 5 should be discussed
+before Section 4. For the other sections also, the flow is missing,
+
+In the process of constructing a minimum spanning tree, it's not clear why
+edges are sorted in descending order of their weights. Note that the algorithm
+is taking edges from top to bottom in the list, it always picks up the highest
+weighted edge, which increases the communication cost.
+
+In De-Bruijn's algorithm, what are 'c' and 'p' represent?
+
+It is not clear how the values shown in Table 1 are generated.
+
+Experimental analysis is very weak in the paper. The authors need to strengthen
+this section. Also, they need to explain their contribution in detail,
+comparing the effectiveness of their technique with existing ones.
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+My comments:
+1. Interesting algorithm for NoC synthesis is proposed. However, the overall
+paper is more a graph theoretic paper than a NoC paper. This is because there
+are no results that demonstrate that the NoC will be better or worse than
+conventional designs with simulations.
+2. Communication cost does not translate directly to message latency or
+datarates which are of interest to NoC designers.
+3. In the proposed NoCs the number of links is doubles wrt MST. how does this
+compare with a mesh which is a conventional and popular NoC topology. With
+higher number of links fault-tolerance will be improved is an intuitive result
+unless compared with existing designs.
+
+============================================================================
+                            REVIEWER #4
+============================================================================
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+The paper addresses the problem of generation of NOC topology with fault
+tolerance for the given workload having communication cost. A solution is
+proposed by tweaking poorest neighbour algorithm and compared against De
+Bruijn’s. The paper also claims to provide minimum theoretical limits.
+
+Several citations on the fault tolerant NOC are missing in the references. A
+basic search gives some of the relevant work as follows which are not cited or
+compared against. Hence the novelty of the work is not clear.
+http://ieeexplore.ieee.org/document/6874524/
+http://ieeexplore.ieee.org/document/7858400/
+
+Further the theoretical limit is presented as minimum spanning tree which is
+not new. On the experiments side, it is not clear how the workload is obtained
+i.e. is it synthetic or from real applications. On the design side, there is no
+discussion on how network flow would come into picture and how the congestion
+in the network come to play in dictating performance.
+
+============================================================================
+                            REVIEWER #5
+============================================================================
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+This paper aims at developing fault tolerant topologies for NoCs. Authors
+present two algorithms for creating fault tolerant irregular topologies and
+then compare them on the basis of communication cost, increase in the same with
+faults, hardware cost overheads and fault tolerance.
+
+Few suggestions / Weaknesses
+
+1. In the proposed solution for disconnected topology, the author modifies the
+algorithm to connect the nodes to the nodes in the rest of the graph with the
+lowest degree.
+What is basis to take the lowest degree node?
+Many lowest degree nodes are available, how to choose a single node among
+multiple nodes.
+What is the major factor in choosing the node for connections? Is it area,
+power, delay, which one?
+
+2. The degree of a node and # of port per node and cost relation is not
+mentioned clearly, author have not given any specific reference.
+
+3. The author does not elaborate the “Experiment Analysis and Result”
+section. Table 1, 2 and table 3 does not provide any details about
+implementations regarding previous algorithms and proposed solution.
+
+The framework in which these algorithms are implemented is not mentioned.
+
+4.Minimum Spanning Tree, Poorest Neighbor and De Bruijn’s are well-known
+algorithms, the author does not clearly mention his/her contribution to
+modified and proposed solutions.
+
+5. Typos mistakes
+Keywords: all keywords are not written in proper format.
+nonfault Tolerant Tree--> nonfault tolerant tree
+
