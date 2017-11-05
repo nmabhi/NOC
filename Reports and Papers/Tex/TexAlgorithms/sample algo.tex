@@ -1,0 +1,33 @@
+809\documentclass{article}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\begin{document}
+\begin{algorithm}
+  \caption{Algorithm for finding server indices using OFG}
+
+  \begin{algorithmic}
+    \Statex \Comment { \%comment: servers[] contains the index of servers whose         data rate are sorted in descending order\%}
+    \State servers[]= index(of all servers) 
+    \State serverIndex[]=servers[0..K]
+    \State linearlyIndependentServerIndex[]=0
+    \State $[Z] \leftarrow 0$
+    \For  {$i=0$ to $serverIndex.length$} 
+    \Statex\Comment{ \%comment: find the equation corresponding the serverIndex        from the mapping at the File Server\%} 
+    \State        $eqn= equation(serverIndex[i])$ 
+    \Statex\Comment{ \%comment: try insert equation into Z using OFG\%} 
+
+    \EndFor end for 
+    \While{ ( linearlyIndependentServerIndex.length!=K ) } 
+    \Statex\Comment{\%comment: remove all the server index which were not inserted in Z\%}  
+    \State temp[]=serverIndex[]-linearlyIndependentServerIndex 
+    \If{  (linearlyIndependentServerIndex.length=K) }
+    \State break
+    \EndIf  
+    \EndWhile  
+  \end{algorithmic}
+\end{algorithm}
+
+
+\end{document}
