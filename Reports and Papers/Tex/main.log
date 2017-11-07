@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.4)  5 NOV 2017 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.4)  6 NOV 2017 10:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,7 +7,7 @@ entering extended mode
 (./main.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/IEEEtran/IEEEtran.cls
+(./IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -189,20 +189,35 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count106
+\float@exts=\toks20
+\float@box=\box30
+\@float@everytoks=\toks21
+\@floatcapt=\box31
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
+\@float@every@algorithm=\toks22
+\c@algorithm=\count107
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks23
 )
-\c@ALC@unique=\count106
-\c@ALC@line=\count107
-\c@ALC@rem=\count108
-\c@ALC@depth=\count109
+\c@ALC@unique=\count108
+\c@ALC@line=\count109
+\c@ALC@rem=\count110
+\c@ALC@depth=\count111
 \ALC@tlm=\skip47
 \algorithmicindent=\skip48
 )
@@ -229,7 +244,7 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count110
+\Gread@gobject=\count112
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
@@ -318,40 +333,40 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 10.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 10.
 
 -- Lines per column: 56 (exact).
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
+\scratchcounter=\count113
 \scratchdimen=\dimen137
-\scratchbox=\box30
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count114
+\scratchbox=\box32
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count116
 \MPscratchDim=\dimen138
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -410,35 +425,94 @@ LaTeX Warning: No \author given.
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+
+Underfull \hbox (badness 7832) in paragraph at lines 36--36
+[][][]\OT1/ptm/m/n/8 This work is par-tially sup-ported by the re-search projec
+t No.
+ []
+
+
+<../Figures_and_tables/Figure1_CoreFlowGraph.png, id=1, 782.925pt x 446.66875pt
+>
+File: ../Figures_and_tables/Figure1_CoreFlowGraph.png Graphic file (type png)
+ <use ../Figures_and_tables/Figure1_CoreFlowGraph.png>
+Package pdftex.def Info: ../Figures_and_tables/Figure1_CoreFlowGraph.png used o
+n input line 63.
+(pdftex.def)             Requested size: 180.60315pt x 103.03152pt.
+ [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 70.
+
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 120.
+Underfull \hbox (badness 1803) in paragraph at lines 74--75
+[]\OT1/ptm/m/n/10 A topol-ogy graph (TG) is a con-nected graph
+ []
 
+<../Figures_and_tables/Figure4_NativeTopolgy.png, id=11, 803.0pt x 702.625pt>
+File: ../Figures_and_tables/Figure4_NativeTopolgy.png Graphic file (type png)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-Underfull \vbox (badness 1082) has occurred while \output is active []
-
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 236.
+<use ../Figures_and_tables/Figure4_NativeTopolgy.png>
+Package pdftex.def Info: ../Figures_and_tables/Figure4_NativeTopolgy.png used o
+n input line 114.
+(pdftex.def)             Requested size: 154.80157pt x 135.45139pt.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 142.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 236.
- [2]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 142.
+ [2 <../Figures_and_tables/Figure1_CoreFlowGraph.png> <../Figures_and_tables/Fi
+gure4_NativeTopolgy.png>]
+<../Figures_and_tables/Figure5_PoorestNeighbor.png, id=22, 923.45pt x 642.4pt>
+File: ../Figures_and_tables/Figure5_PoorestNeighbor.png Graphic file (type png)
+
+
+<use ../Figures_and_tables/Figure5_PoorestNeighbor.png>
+Package pdftex.def Info: ../Figures_and_tables/Figure5_PoorestNeighbor.png used
+ on input line 154.
+(pdftex.def)             Requested size: 206.39685pt x 143.57314pt.
+
+<../Figures_and_tables/Figure6_DeBruijn.png, id=23, 1204.5pt x 843.15pt>
+File: ../Figures_and_tables/Figure6_DeBruijn.png Graphic file (type png)
+
+<use ../Figures_and_tables/Figure6_DeBruijn.png>
+Package pdftex.def Info: ../Figures_and_tables/Figure6_DeBruijn.png used on inp
+ut line 199.
+(pdftex.def)             Requested size: 232.19843pt x 162.5288pt.
+
+<../Figures_and_tables/Figure7_IsolatedPair.png, id=24, 662.475pt x 582.175pt>
+File: ../Figures_and_tables/Figure7_IsolatedPair.png Graphic file (type png)
+
+<use ../Figures_and_tables/Figure7_IsolatedPair.png>
+Package pdftex.def Info: ../Figures_and_tables/Figure7_IsolatedPair.png used on
+ input line 236.
+(pdftex.def)             Requested size: 154.80157pt x 136.0383pt.
+ [3 <../Figures_and_tables/Figure5_PoorestNeighbor.png> <../Figures_and_tables/
+Figure6_DeBruijn.png>]
+<../Figures_and_tables/Figure8_IsolatedPairSolution.png, id=29, 622.325pt x 622
+.325pt>
+File: ../Figures_and_tables/Figure8_IsolatedPairSolution.png Graphic file (type
+ png)
+ <use ../Figures_and_tables/Figure8_IsolatedPairSolution.png>
+Package pdftex.def Info: ../Figures_and_tables/Figure8_IsolatedPairSolution.png
+ used on input line 244.
+(pdftex.def)             Requested size: 129.0pt x 129.00183pt.
+ [4 <../Figures_and_tables/Figure7_IsolatedPair.png> <../Figures_and_tables/Fig
+ure8_IsolatedPairSolution.png>]
+Missing character: There is no ä in font ptmr7t!
+Missing character: There is no   in font ptmr7t!
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -450,33 +524,32 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
+[5
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 3986 strings out of 492995
- 59630 string characters out of 6132704
- 125346 words of memory out of 5000000
- 7472 multiletter control sequences out of 15000+600000
- 44491 words of font info for 90 fonts, out of 8000000 for 9000
+ 4132 strings out of 492995
+ 62349 string characters out of 6132704
+ 133147 words of memory out of 5000000
+ 7611 multiletter control sequences out of 15000+600000
+ 41762 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,10n,26p,899b,269s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,9n,26p,1104b,511s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
-}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
+}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
 /local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local
-/texlive/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texm
-f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dist/fo
-nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
-urw/times/utmri8a.pfb>
-Output written on main.pdf (3 pages, 121228 bytes).
+al/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 227370 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
