@@ -6,39 +6,43 @@
 \usepackage{algorithm, algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \makeatletter
 \newcommand*\titleheader[1]{\gdef\@titleheader{#1}}
 \AtBeginDocument{%
   \let\st@red@title\@title
   \def\@title{%
-    \bgroup\normalfont\large\centering\@titleheader\par\egroup
     \vskip1.5em\st@red@title}
 }
 \makeatother
 \title{Fault-Tolerant Application Specific\\ Network-on-Chip Design
 \thanks{This work is partially supported by the research project No. ECR/2016/001389 dt. 06/03/2017, sponsored by the SERB, Govt. of India}
 }
-\titleheader{2017 7th International Symposium on Embedded computing \& system Design}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\textit{2017 Seventh International Symposium on Embedded Computing and System Design (ISED)}}
+\IEEEoverridecommandlockouts\IEEEpubid{\makebox[\columnwidth]{978-1-5386-3032-7/17/\$31.00~\copyright~2017 IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{}}
 \begin{document}
 \author{\IEEEauthorblockN{Parth Shah\IEEEauthorrefmark{1},
 Abhishek Kanniganti\IEEEauthorrefmark{2},
 Soumya J\IEEEauthorrefmark{3}}
 \IEEEauthorblockA{Department of Electrical and Electronics Engineering,\\
 Birla Institute of Technology and Science - Pilani, Hyderabad Campus,\\
-Hyderabad, India\\
+Hyderabad, India\\fo
 Email: \IEEEauthorrefmark{1}parthjshah95@gmail.com,
 \IEEEauthorrefmark{2}nmabhi42@gmail.com,
 \IEEEauthorrefmark{3}soumyatkgp@gmail.com}}
 \maketitle
 \begin{abstract}
-Network-on-Chip (NoC) has been introduced to address the communication problems associated with the traditional bus based System-on-Chip (SoC) architectures. NoC can be designed either using regular or irregular architectures. Even though many regular architectures have been proposed in the literature, there is a mismatch between the application requirements and the design. Application specific NoC designs have been proposed to match the requirements of the applications, which are irregular in nature. Due to the heavy integration of the components on the chip, designs that are vulnerable to faults in links can render the chip unusable. This paper firsts sets the benchmark of minimum possible communication cost and thereafter proposes a greedy algorithm to develop link fault-tolerant application specific topology for the given application core graph which meets that benchmark.
+Network-on-Chip (NoC) has been introduced to address the communication problems associated with the traditional bus based System-on-Chip (SoC) architectures. NoC can be designed either using regular or irregular architectures. Even though many regular architectures have been proposed in the literature, there is a mismatch between the application requirements and the design. Application specific NoC designs have been proposed to match the requirements of the applications, which are irregular in nature. Due to the heavy integration of the components on the chip, designs that are vulnerable to faults in links can render the chip unusable. This paper first sets the benchmark of minimum possible communication cost and thereafter proposes a greedy algorithm to develop link fault-tolerant application specific topology for the given application core graph which meets that benchmark.
 \end{abstract}
 \begin{IEEEkeywords}
 Link fault tolerance, greedy algorithm, application specific network on chip, topology design, graph theory
 \end{IEEEkeywords}
 \section{Introduction}
-Recent advances in technology have enabled to integrate millions of transistors on a single chip, so much so that multiple components can now be integrated on a single chip, leading to the development of System-on-chip (SoC). Traditional SoC designs used bus for the communication between the components. But this can lead to saturation very fast and is not scalable. Network-on-Chip (NoC)\cite{b1} has been introduced to overcome the problems associated with bus based communication. For generic NoC, symmetric topologies like mesh are widely used, but there is a mismatch between the regular topologies and the application requirements. However, for Application Specific NoC (ASNoC), irregular topologies can reduce hardware costs and improve performance. A survey of ASNoC design techniques has been presented in\cite{b2, b3, b8}. They enumerate the advantages of custom topologies over standard ones for ASNoC. 
+Recent advances in technology have enabled to integrate millions of transistors on a single chip, so much so that multiple components can now be integrated on a single chip, leading to the development of System-on-chip (SoC). Traditional SoC designs used bus topology for the communication between the components. But this can lead to saturation very fast and is not scalable. Network-on-Chip (NoC)\cite{b1} has been introduced to overcome the problems associated with bus based communication. For generic NoC, symmetric topologies like mesh are widely used, but there is a mismatch between the regular topologies and the application requirements. However, for Application Specific NoC (ASNoC), irregular topologies can reduce hardware costs and improve performance. A survey of ASNoC design techniques has been presented in\cite{b2, b3, b8}. They enumerate the advantages of custom topologies over standard ones for ASNoC. 
 
 The network components which connect various cores in the NoC are prone to failure and can result in the complete breakdown of the system%[citation needed]
 . Hence, it is essential to design NoC topologies with fault tolerance, which can be attained by adding more links and routers to the existing topology and create alternate paths between routers and cores. The proposed solution in this paper is a graph theoretic greedy algorithm that generates a link fault tolerant topology from the given application specifications with minimum communication cost.
@@ -93,7 +97,7 @@ In all the following algorithms, we assume that each core $n_i$ in $N$ in the CF
 %discuss whether to include this
 %\section{Tree Topology}
 \section{Native Topology}\label{nativeSection}
-The simplest technique to build a topology $T(R, L)$ is to replace all nodes with routers and edges with links in the CFG, $C(N, E)$. The following algorithm does exactly that:
+The simplest technique to build a topology $T(R, L)$ is to replace all nodes with routers and edges with links in the CFG, $C(N, E)$. The algorithm~\ref{nativeAlgo} does exactly that.
 \begin{algorithm}
 \caption{Native Topology}
 \begin{algorithmic}[1]\label{nativeAlgo}
@@ -117,7 +121,7 @@ The simplest technique to build a topology $T(R, L)$ is to replace all nodes wit
 \label{nativeFig}
 \end{figure}
 
-This simple topology has the lowest communication cost theoretically possible, since $h_{i,j} = 1$ for all edges $e_{i,j}$. Hence, this sets a benchmark for the minimum communication cost. Any topology that includes this as a subgraph will have the same communication cost. Hence, this topology is intended to be the basis for the next algorithm discussed in the next sections. When this technique is applied to the input graph in fig.~\ref{inputFig}, the resultant topology is illustrated in  fig.~\ref{nativeFig}.
+This simple topology has the lowest communication cost theoretically possible, since $h_{i,j} = 1$ for all edges $e_{i,j}$. Hence, this sets a benchmark for the minimum communication cost. Any topology that includes this as a subgraph will have the same communication cost. Hence, this topology is intended to be the basis for the algorithm~\ref{poorestAlgo}. When this technique is applied to the input graph in fig.~\ref{inputFig}, the resultant topology is illustrated in  fig.~\ref{nativeFig}.
 \section{Poorest Neighbour Algorithm}
 The native topology has the lowest possible communication cost, as mentioned in section~\ref{nativeSection}. However, it might not be link fault tolerant. To achieve that, we add some more links. But, we still include the entire native topology so as to keep communication cost to the minimum. In the following algorithm, we test whether each link $l_{i,j}$ in the native topology has an alternate path connecting routers $r_i$ and $r_j$ (going in the descending order of the corresponding weights $w_{i,j}$). If not, we connect it to a neighbouring router with the lowest degree (defined in section~\ref{degree}). The rationale behind this algorithm is that the edges with highest weights should have the lowest possible hops in order to reduce the total communication cost and that the routers should have similar loads (and therefore similar degrees). This is the 'poorest neighbour' algorithm (algorithm~\ref{poorestAlgo}).
 \begin{algorithm}
@@ -158,8 +162,8 @@ When this algorithm is applied to the CFG in fig.~\ref{inputFig}, result looks l
 \label{poorestFig}
 \end{figure}
 \section{De-Bruijn's Algorithm}
-De Bruijn's graph is a popular algorithm which is widely used in the field of Bioinformatics.%citation needed
- Works such as \cite{b7} suggest De Bruijn's graph as an alternate topology and compared its energy consumption with popular regular topologies like Mesh and Torus. This graph is inherently link fault tolerant and has lower energy consumption than regular topologies like Mesh as established by \cite{b7}. It may also contain more than one alternate path for a pair of nodes. The algorithm~\ref{deBruijnAlgo} is also explained in \cite{b9}. . In the later sections of the paper, its performance is compared against the poorest neighbour algorithm (algorithm~\ref{poorestAlgo}).
+De Bruijn's graph is a popular algorithm which is widely used in the field of Bioinformatics%citation needed
+. Works such as \cite{b7} suggest De Bruijn's graph as an alternate topology and compared its energy consumption with popular regular topologies like Mesh and Torus. This graph is inherently link fault tolerant and has lower energy consumption than regular topologies like Mesh as established by \cite{b7}. It may also contain more than one alternate path for a pair of nodes. The algorithm~\ref{deBruijnAlgo} is also explained in \cite{b9}. In the later sections of the paper, its performance is compared against the poorest neighbour algorithm (algorithm~\ref{poorestAlgo}).
 \begin{algorithm}
 \caption{De-Bruijn's Algorithm}\label{deBruijnAlgo}
 \begin{algorithmic}[1]
@@ -203,7 +207,7 @@ When applied to the CFG in fig.~\ref{inputFig}, the result looks like fig.~\ref{
 \label{deBruijnFig}
 \end{figure}
 \section{Observations}
-The main objective of this paper is to create a topology with 100\% link fault tolerance. However, as seen in Table~\ref{faultTolerance}, the poorest neighbour algorithm does not always provide 100\% link fault tolerance. We investigate the cause and find a solution for this problem in this section. With the solution proposed here, the poorest neighbour algorithm provides 100\% link fault tolerance in all tested cases.
+The main objective of this paper is to create a topology with 100\% link fault tolerance. However, as seen in table~\ref{faultTolerance}, the poorest neighbour algorithm does not always provide 100\% link fault tolerance. We investigate the cause and find a solution for this problem in this section. With the solution proposed here, the poorest neighbour algorithm provides 100\% link fault tolerance in all tested cases.
 \begin{table}[htbp]
 \caption{Link fault tolerance}
 \begin{center}
@@ -232,7 +236,7 @@ The main objective of this paper is to create a topology with 100\% link fault t
 \end{center}
 \end{table}
 \subsection{Fail Case: Isolated Pair}
-Consider a disconnected graph like the one shown in fig.~\ref{isolatedPairFig}. The poorest neighbour algorithm first checks if each link has an alternate path for connecting the two end routers of that link. If yes, then it does nothing. If no, then the algorithm seeks to connect one of the routers with a neighbour of the other router. But in the graph, consider the link connecting routers $r_7$ and $r_8$. None of these routers have another neighbour to connect to. No connection is thus made, and the resulting topology is not fault tolerant.
+Consider a disconnected graph like the one shown in fig.~\ref{isolatedPairFig}. The poorest neighbour algorithm first checks if each link has an alternate path for connecting the two end routers of that link. If yes, then it does nothing. If no, then the algorithm seeks to connect one of the routers with a neighbour of the other router. But in this graph, consider the routers $r_7$ and $r_8$. None of these routers have another neighbour to connect to. No connection is thus made, and the resulting topology does not provide 100\% link fault tolerance.
 \begin{figure}
 \centering
 \includegraphics[width=0.3\textwidth]{../Figures_and_tables/Figure7_IsolatedPair}
